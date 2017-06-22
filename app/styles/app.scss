@@ -1,8 +1,3 @@
 @import "base/_variables";
 @import "components/_navigation";
-
-$color: green;
-
-p {
-  color: $color;
-}
+@import "components/_clock";
