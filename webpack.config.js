@@ -14,7 +14,17 @@ module.exports = {
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
-    })
+    }),
+    new webpack.LoaderOptionsPlugin({
+            test: /\.scss$/,
+            options: {
+                sassLoader: {
+                    includePaths: [
+                        path.resolve(__dirname, './node_modules/foundation-sites/scss')
+                    ]
+                }
+            }
+        })
   ],
   output: {
     path: path.resolve(__dirname),
@@ -38,8 +48,7 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   module: {
-    rules: [
-      {
+    rules: [{
         loader: 'babel-loader',
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
